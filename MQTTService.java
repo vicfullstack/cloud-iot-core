@@ -18,7 +18,7 @@ public class MQTTService extends Service {
     public static final String BROKER_URL = "ssl://mqtt.googleapis.com:8883";
     public static final String CLIENT_ID = "projects/changhong-gcp-001/locations/europe-west1/registries/changhong-registry/devices/changhongTV";
     //订阅的主题
-    public static final String TOPIC = "projects/changhong-gcp-001/topics/changhong-device-events";
+    public static final String TOPIC = "projects/changhong-gcp-001/topics/changhong-device-events/#";
     public static MqttClient mqttClient;
     //mqtt连接配置
     private MqttConnectOptions mqttOptions;
@@ -55,9 +55,10 @@ public class MQTTService extends Service {
             // 设置回调
             mqttClient.setCallback(new PushCallback(mqttClient));
             Logutil.i("onStartCommand: before connect");
-            //客户端下线，其它客户端或者自己再次上线可以接收"遗嘱"消息. 需要注释以下两句，否则会报“java.lang.IllegalArgumentException: The topic name MUST NOT contain any wildcard characters (#+)” 错误
-//            MqttTopic topic1 = mqttClient.getTopic(TOPIC);
-//            mqttOptions.setWill(topic1, "close".getBytes(), 2, true);
+            //客户端下线，其它客户端或者自己再次上线可以接收"遗嘱"消息. 需要注释以下两句，
+            //否则会报“java.lang.IllegalArgumentException: The topic name MUST NOT contain any wildcard characters (#+)” 错误
+            //  MqttTopic topic1 = mqttClient.getTopic(TOPIC);
+            //  mqttOptions.setWill(topic1, "close".getBytes(), 2, true);
             mqttClient.connect(mqttOptions);
             Logutil.i("onStartCommand: after connect");
             Logutil.i("连接mqtt服务器成功");
