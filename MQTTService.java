@@ -16,9 +16,9 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class MQTTService extends Service {
 
     public static final String BROKER_URL = "ssl://mqtt.googleapis.com:8883";
-    public static final String CLIENT_ID = "projects/changhong-gcp-001/locations/europe-west1/registries/changhong-registry/devices/changhongTV";
+    public static final String CLIENT_ID = "projects/customer-gcp-001/locations/europe-west1/registries/customer-registry/devices/customerTV";
     //订阅的主题
-    public static final String TOPIC = "projects/changhong-gcp-001/topics/changhong-device-events/#";
+    public static final String TOPIC = "projects/customer-gcp-001/topics/customer-device-events/#";
     public static MqttClient mqttClient;
     //mqtt连接配置
     private MqttConnectOptions mqttOptions;
