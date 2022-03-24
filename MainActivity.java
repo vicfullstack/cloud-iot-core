@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 //.requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
-                //.requestIdToken("913123775306-npeij2k0dclfgflhh7lak3r18njnbk2b.apps.googleusercontent.com")
-                .requestIdToken("913123775306-3mt0etpov1bula2sa86lhrh9phj9bk1g.apps.googleusercontent.com")
+                .requestIdToken("xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -145,13 +144,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .readTimeout(0, TimeUnit.SECONDS)
                 .build();
 
-        String jwtRsa = createJwtRsa("changhong-gcp-001");
+        String jwtRsa = createJwtRsa("customer-gcp-001");
         Logutil.i("JwtRsa: " + jwtRsa);
         Request request = new Request.Builder()
                 .addHeader("authorization", " Bearer " + jwtRsa)
                 .addHeader("idtoken", idToken)
                 .addHeader("cache-control", "no-cache")
-                .url("https://cloudiotdevice.googleapis.com/v1/projects/changhong-gcp-001/locations/europe-west1/registries/changhong-registry/devices/changhongTV/config?local_version=1")
+                .url("https://cloudiotdevice.googleapis.com/v1/projects/customer-gcp-001/locations/europe-west1/registries/customer-registry/devices/customerTV/config?local_version=1")
                 .build();
 
         okHttpClient.newCall(request).enqueue(new Callback() {
