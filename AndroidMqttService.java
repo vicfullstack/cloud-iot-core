@@ -26,10 +26,10 @@ public class AndroidMqttService extends Service {
     public String HOST = "ssl://mqtt.googleapis.com:8883";//服务器地址（协议+地址+端口号）
     public String USERNAME = "unused";//用户名
     public String PASSWORD = "password";//密码
-    public static String PUBLISH_TOPIC = "/devices/changhongTV/commands/#";//发布主题
-    public static String RESPONSE_TOPIC = "/devices/changhongTV/commands/#";//响应主题
+    public static String PUBLISH_TOPIC = "/devices/customerTV/commands/#";//发布主题
+    public static String RESPONSE_TOPIC = "/devices/customerTV/commands/#";//响应主题
 
-    public String CLIENTID = "projects/changhong-gcp-001/locations/europe-west1/registries/changhong-registry/devices/changhongTV";
+    public String CLIENTID = "projects/customer-gcp-001/locations/europe-west1/registries/customer-registry/devices/customerTV";
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
