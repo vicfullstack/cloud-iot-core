@@ -16,7 +16,7 @@ public class ConnectIOTCoreManager extends WebSocketListener {
     private static OkHttpClient client;
 
     public void init(/*String serverAddr*/) {
-        String serverAddr = "https://cloudiotdevice.googleapis.com/v1/projects/changhong-gcp-001/locations/europe-west1/registries/changhong-registry/devices/changhongTV";
+        String serverAddr = "https://cloudiotdevice.googleapis.com/v1/projects/customer-gcp-001/locations/europe-west1/registries/customer-registry/devices/customerTV";
         Logutil.i("serverAddr: " + serverAddr);
         client = new OkHttpClient.Builder()
                 .retryOnConnectionFailure(true)
